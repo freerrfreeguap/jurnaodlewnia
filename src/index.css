@@ -24,7 +24,7 @@
     --muted: 215 35% 95%;
     --muted-foreground: 222 30% 35%;
 
-    --accent: 27 88% 48%;
+    --accent: 215 85% 35%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
@@ -116,10 +116,10 @@
     color: hsl(210 30% 80%);
   }
   .bg-card .text-accent {
-    color: hsl(32 92% 62%);
+    color: hsl(215 90% 70%);
   }
   .bg-card .border-accent {
-    border-color: hsl(32 92% 62%);
+    border-color: hsl(215 90% 70%);
   }
 
   .section-divider {
