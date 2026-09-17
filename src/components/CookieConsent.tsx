@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Switch } from "@/components/ui/switch";
 import { Dialog, DialogContent, DialogDescription, DialogFooter, DialogHeader, DialogTitle } from "@/components/ui/dialog";
 import { Cookie, X } from "lucide-react";
+import { useLanguage } from "@/i18n";
 
 /** Wersja zgody — podbij, aby wymusić ponowne pytanie użytkowników. */
 const CONSENT_VERSION = "1.0";
@@ -163,6 +164,7 @@ const CookieBanner = ({
   onRejectAll: () => void;
   onSettings: () => void;
 }) => {
+  const { t } = useLanguage();
   return (
     <div
       role="dialog"
@@ -177,28 +179,28 @@ const CookieBanner = ({
             <Cookie className="w-4 h-4 text-muted-foreground mt-0.5 shrink-0" aria-hidden="true" />
             <div className="flex-1 min-w-0">
               <h2 id="cookie-banner-title" className="text-sm font-medium text-foreground">
-                Pliki cookies
+                {t("cookies.bannerTitle")}
               </h2>
               <p id="cookie-banner-desc" className="text-xs text-muted-foreground leading-relaxed mt-0.5">
-                Używamy cookies do działania serwisu oraz — za zgodą — analityki.{" "}
-                <Link to="/polityka-cookies" className="underline hover:text-foreground">Szczegóły</Link>
+                {t("cookies.bannerDesc")}{" "}
+                <Link to="/polityka-cookies" className="underline hover:text-foreground">{t("cookies.detailsLink")}</Link>
               </p>
             </div>
           </div>
 
           <div className="mt-3 flex flex-wrap items-center gap-2">
             <Button type="button" size="sm" onClick={onAcceptAll}>
-              Akceptuj
+              {t("cookies.acceptAll")}
             </Button>
             <Button type="button" size="sm" variant="outline" onClick={onRejectAll}>
-              Odrzuć
+              {t("cookies.rejectAll")}
             </Button>
             <button
               type="button"
               onClick={onSettings}
               className="text-xs text-muted-foreground underline hover:text-foreground"
             >
-              Ustawienia
+              {t("cookies.settingsLink")}
             </button>
           </div>
         </div>
@@ -225,6 +227,7 @@ const CookieSettingsDialog = ({
   onRejectAll: () => void;
 }) => {
   const [local, setLocal] = useState<ConsentCategories>(initial);
+  const { t } = useLanguage();
 
   useEffect(() => {
     if (open) setLocal(initial);
@@ -239,34 +242,34 @@ const CookieSettingsDialog = ({
     <Dialog open={open} onOpenChange={onOpenChange}>
       <DialogContent className="max-w-2xl">
         <DialogHeader>
-          <DialogTitle>Ustawienia plików cookies</DialogTitle>
+          <DialogTitle>{t("cookies.dialogTitle")}</DialogTitle>
           <DialogDescription>
-            Wybierz kategorie, na które wyrażasz zgodę. Zgodę możesz w każdej chwili zmienić lub wycofać.
+            {t("cookies.dialogDesc")}
           </DialogDescription>
         </DialogHeader>
 
         <div className="space-y-4 py-2">
           <CategoryRow
-            title="Niezbędne"
-            description="Wymagane do działania strony i podstawowych funkcji (m.in. zapamiętanie zgody). Zawsze aktywne."
+            title={t("cookies.necessaryTitle")}
+            description={t("cookies.necessaryDesc")}
             checked
             disabled
           />
           <CategoryRow
-            title="Funkcjonalne"
-            description="Zapamiętują Twoje preferencje (np. wersja językowa, motyw) i podnoszą wygodę korzystania z serwisu."
+            title={t("cookies.functionalTitle")}
+            description={t("cookies.functionalDesc")}
             checked={local.functional}
             onCheckedChange={(v) => set("functional", v)}
           />
           <CategoryRow
-            title="Analityczne"
-            description="Pomagają nam mierzyć ruch i sposób korzystania ze strony w celu jej ulepszania (np. statystyki anonimowe)."
+            title={t("cookies.analyticsTitle")}
+            description={t("cookies.analyticsDesc")}
             checked={local.analytics}
             onCheckedChange={(v) => set("analytics", v)}
           />
           <CategoryRow
-            title="Marketingowe"
-            description="Pozwalają na personalizację treści i reklam oraz mierzenie skuteczności kampanii."
+            title={t("cookies.marketingTitle")}
+            description={t("cookies.marketingDesc")}
             checked={local.marketing}
             onCheckedChange={(v) => set("marketing", v)}
           />
@@ -274,13 +277,13 @@ const CookieSettingsDialog = ({
 
         <DialogFooter className="gap-2 sm:gap-2">
           <Button type="button" variant="outline" onClick={onRejectAll}>
-            Odrzuć wszystkie
+            {t("cookies.rejectAllLong")}
           </Button>
           <Button type="button" variant="outline" onClick={onAcceptAll}>
-            Akceptuj wszystkie
+            {t("cookies.acceptAllLong")}
           </Button>
           <Button type="button" onClick={() => onSave(local)}>
-            Zapisz wybór
+            {t("cookies.saveChoice")}
           </Button>
         </DialogFooter>
       </DialogContent>
@@ -300,22 +303,25 @@ const CategoryRow = ({
   checked: boolean;
   disabled?: boolean;
   onCheckedChange?: (v: boolean) => void;
-}) => (
-  <div className="flex items-start justify-between gap-4 rounded-lg border border-border bg-secondary/40 p-4">
-    <div className="flex-1 min-w-0">
-      <div className="flex items-center gap-2">
-        <h3 className="text-sm font-semibold text-foreground">{title}</h3>
-        {disabled && <span className="text-[10px] uppercase tracking-wider text-muted-foreground">zawsze aktywne</span>}
+}) => {
+  const { t } = useLanguage();
+  return (
+    <div className="flex items-start justify-between gap-4 rounded-lg border border-border bg-secondary/40 p-4">
+      <div className="flex-1 min-w-0">
+        <div className="flex items-center gap-2">
+          <h3 className="text-sm font-semibold text-foreground">{title}</h3>
+          {disabled && <span className="text-[10px] uppercase tracking-wider text-muted-foreground">{t("cookies.alwaysActive")}</span>}
+        </div>
+        <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{description}</p>
       </div>
-      <p className="mt-1 text-xs text-muted-foreground leading-relaxed">{description}</p>
+      <Switch
+        checked={checked}
+        disabled={disabled}
+        onCheckedChange={onCheckedChange}
+        aria-label={`${t("cookies.consentAriaPrefix")}: ${title}`}
+      />
     </div>
-    <Switch
-      checked={checked}
-      disabled={disabled}
-      onCheckedChange={onCheckedChange}
-      aria-label={`Zgoda: ${title}`}
-    />
-  </div>
-);
+  );
+};
 
 export default CookieConsentProvider;

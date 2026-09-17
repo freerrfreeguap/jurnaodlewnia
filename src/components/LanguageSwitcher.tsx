@@ -29,6 +29,12 @@ const langNames: Record<Language, string> = {
   de: "Deutsch",
 };
 
+const chooseLanguageLabel: Record<Language, string> = {
+  pl: "Wybierz język",
+  en: "Choose language",
+  de: "Sprache wählen",
+};
+
 const langs: Language[] = ["pl", "en", "de"];
 
 const LanguageSwitcher = () => {
@@ -52,7 +58,7 @@ const LanguageSwitcher = () => {
       <Dialog open={dialogOpen} onOpenChange={setDialogOpen}>
         <DialogContent className="max-w-[280px] rounded-xl">
           <DialogHeader>
-            <DialogTitle className="text-center text-base">Wybierz język</DialogTitle>
+            <DialogTitle className="text-center text-base">{chooseLanguageLabel[language]}</DialogTitle>
           </DialogHeader>
           <div className="flex flex-col gap-2 pt-2">
             {langs.map((lang) => (

@@ -31,9 +31,9 @@ const Footer = () => {
               <p>KRS: 0000769423</p>
               <p>NIP: 6793179929</p>
               <p>REGON: 382451991</p>
-              <p className="pt-2 text-foreground">Biuro:</p>
+              <p className="pt-2 text-foreground">{t("footer.officeLabel")}</p>
               <p>ul. Szlak 67, 31-153 Kraków, małopolskie</p>
-              <p className="pt-2 text-foreground">Zakład produkcyjny:</p>
+              <p className="pt-2 text-foreground">{t("footer.plantLabel")}</p>
               <p>ul. Innowacyjna 3, 36-060 Głogów Małopolski, podkarpackie</p>
             </div>
           </div>
@@ -53,7 +53,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold text-foreground mb-3 text-sm">{t("footer.contactTitle")}</h4>
             <ul className="space-y-2 text-sm text-muted-foreground">
-              <li className="text-foreground font-medium">Roman Juryk – Menadżer Produktu</li>
+              <li className="text-foreground font-medium">{t("contact.managerName")} – {t("contact.managerRole")}</li>
               <li>
                 <a href="mailto:roman.juryk@leniar.pl" className="hover:text-foreground transition-colors">roman.juryk@leniar.pl</a>
               </li>
@@ -87,18 +87,18 @@ const Footer = () => {
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold text-foreground mb-3 text-sm">Informacje prawne</h4>
+              <h4 className="font-semibold text-foreground mb-3 text-sm">{t("footer.legalInfoTitle")}</h4>
               <ul className="space-y-2 text-sm text-muted-foreground">
-                <li><Link to="/polityka-prywatnosci" className="hover:text-foreground transition-colors">Polityka prywatności</Link></li>
-                <li><Link to="/polityka-cookies" className="hover:text-foreground transition-colors">Polityka cookies</Link></li>
-                <li><Link to="/regulamin" className="hover:text-foreground transition-colors">Regulamin</Link></li>
+                <li><Link to="/polityka-prywatnosci" className="hover:text-foreground transition-colors">{t("footer.privacyPolicyLink")}</Link></li>
+                <li><Link to="/polityka-cookies" className="hover:text-foreground transition-colors">{t("footer.cookiesPolicyLink")}</Link></li>
+                <li><Link to="/regulamin" className="hover:text-foreground transition-colors">{t("footer.termsLink")}</Link></li>
                 <li>
                   <button
                     type="button"
                     onClick={openCookieSettings}
                     className="hover:text-foreground transition-colors text-left"
                   >
-                    Ustawienia cookies
+                    {t("footer.cookieSettingsLink")}
                   </button>
                 </li>
               </ul>
@@ -107,7 +107,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted-foreground">
-          <p>© {new Date().getFullYear()} Leniar. Wszelkie prawa zastrzeżone.</p>
+          <p>© {new Date().getFullYear()} Leniar. {t("footer.rightsReserved")}</p>
           <p>{t("footer.tagline")}</p>
         </div>
       </div>

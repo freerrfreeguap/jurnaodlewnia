@@ -159,7 +159,7 @@ const ContactSection = ({ asH1 = false }: { asH1?: boolean }) => {
                 </div>
                 <div>
                   <div className="text-sm text-muted-foreground">{t("contact.managerRole")}</div>
-                  <div className="font-medium text-foreground">Roman Juryk – Menadżer Produktu</div>
+                  <div className="font-medium text-foreground">{t("contact.managerName")}</div>
                   <div className="text-sm text-muted-foreground">LENIAR – {t("contact.managerCompany")}</div>
                 </div>
               </div>
@@ -347,9 +347,9 @@ const ContactSection = ({ asH1 = false }: { asH1?: boolean }) => {
                         aria-invalid={!!privacyError}
                       />
                       <label htmlFor="consent-privacy" className="text-xs text-foreground leading-relaxed cursor-pointer">
-                        <span className="text-destructive">*</span> Zapoznałem/-am się z{" "}
-                        <Link to="/polityka-prywatnosci" target="_blank" className="text-primary hover:underline">Polityką prywatności</Link>{" "}
-                        i akceptuję zasady przetwarzania moich danych.
+                        <span className="text-destructive">*</span> {t("contact.privacyPre")}{" "}
+                        <Link to="/polityka-prywatnosci" target="_blank" className="text-primary hover:underline">{t("contact.privacyLinkLabel")}</Link>{" "}
+                        {t("contact.privacyPost")}
                       </label>
                     </div>
                     {privacyError && <p className="text-xs font-medium text-destructive" role="alert">{privacyError}</p>}
@@ -362,8 +362,7 @@ const ContactSection = ({ asH1 = false }: { asH1?: boolean }) => {
                         className="mt-0.5"
                       />
                       <label htmlFor="consent-marketing" className="text-xs text-foreground leading-relaxed cursor-pointer">
-                        Wyrażam zgodę na otrzymywanie informacji handlowych drogą elektroniczną na podany adres e-mail lub numer telefonu
-                        (zgoda zgodna z ustawą o świadczeniu usług drogą elektroniczną i Prawem telekomunikacyjnym). Zgoda jest dobrowolna i mogę ją wycofać w każdej chwili.
+                        {t("contact.marketingConsent")}
                       </label>
                     </div>
                   </div>
@@ -371,11 +370,9 @@ const ContactSection = ({ asH1 = false }: { asH1?: boolean }) => {
                   <div className="flex items-start gap-2 rounded-lg border border-border bg-background p-4 text-xs text-foreground/90 leading-relaxed">
                     <ShieldCheck className="w-4 h-4 text-primary shrink-0 mt-0.5" aria-hidden="true" />
                     <p>
-                      <span className="font-semibold text-foreground">Klauzula informacyjna RODO:</span>{" "}
-                      Administratorem Twoich danych jest {COMPANY.name} ({COMPANY.address}). Dane przetwarzamy w celu odpowiedzi na zapytanie
-                      (art. 6 ust. 1 lit. b i f RODO). Przysługuje Ci prawo dostępu, sprostowania, usunięcia, ograniczenia, sprzeciwu, przenoszenia danych
-                      oraz wniesienia skargi do Prezesa UODO. Pełne informacje:{" "}
-                      <Link to="/polityka-prywatnosci" className="text-primary hover:underline">Polityka prywatności</Link>.
+                      <span className="font-semibold text-foreground">{t("contact.gdprNoticeTitle")}</span>{" "}
+                      {t("contact.gdprIntro")} {COMPANY.name} ({COMPANY.address}). {t("contact.gdprBody")}{" "}
+                      <Link to="/polityka-prywatnosci" className="text-primary hover:underline">{t("contact.gdprPolicyLinkLabel")}</Link>.
                     </p>
                   </div>
 

@@ -9,7 +9,7 @@ const AboutSection = () => {
   const { t } = useLanguage();
 
   const stats = [
-    { icon: Calendar, value: "od 1983", label: t("about.stat1") },
+    { icon: Calendar, value: t("about.stat1Value"), label: t("about.stat1") },
     { icon: TrendingUp, value: "1 000 000+", label: t("about.stat2") },
     { icon: Users, value: "40+", label: t("about.stat3") },
     { icon: Award, value: "±0.03 mm", label: t("about.stat4") },
@@ -54,7 +54,7 @@ const AboutSection = () => {
             <figcaption className="px-5 py-4 bg-primary text-primary-foreground flex items-start gap-3">
               <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-accent" />
               <div className="text-sm leading-relaxed">
-                <p className="font-semibold">Zakład produkcyjny Leniar</p>
+                <p className="font-semibold">{t("about.plantCaptionTitle")}</p>
                 <p className="text-primary-foreground/80">ul. Innowacyjna 3, 36-060 Głogów Małopolski, Strefa Rogoźnica · podkarpackie</p>
               </div>
             </figcaption>
@@ -72,7 +72,7 @@ const AboutSection = () => {
             <figcaption className="px-5 py-4 bg-primary text-primary-foreground flex items-start gap-3">
               <MapPin className="w-5 h-5 mt-0.5 shrink-0 text-accent" />
               <div className="text-sm leading-relaxed">
-                <p className="font-semibold">Biuro Leniar</p>
+                <p className="font-semibold">{t("about.officeCaptionTitle")}</p>
                 <p className="text-primary-foreground/80">ul. Szlak 67, 31-153 Kraków · małopolskie</p>
               </div>
             </figcaption>
@@ -114,8 +114,8 @@ const AboutSection = () => {
         <div className="mb-8 p-6 rounded-lg bg-primary/5 border-2 border-primary/30 flex items-center gap-4 justify-center text-center flex-wrap">
           <ShieldCheck className="w-7 h-7 text-primary shrink-0" />
           <div>
-            <p className="font-bold text-foreground text-lg">Zatwierdzony dostawca branży automotive</p>
-            <p className="text-sm text-muted-foreground">Wieloletnia współpraca z producentami komponentów dla motoryzacji – jakość zgodna z wymaganiami sektora automotive.</p>
+            <p className="font-bold text-foreground text-lg">{t("about.automotiveTitle")}</p>
+            <p className="text-sm text-muted-foreground">{t("about.automotiveDesc")}</p>
           </div>
         </div>
 
