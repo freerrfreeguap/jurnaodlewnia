@@ -24,7 +24,7 @@ jobs:
           node-version: 22
           cache: npm
       - uses: oven-sh/setup-bun@v2
-      - run: npm install
+      - run: npm ci
       - run: npm run build -- --base=/${{ github.event.repository.name }}/
         env:
           # Supabase anon/publishable key - safe to ship client-side (it's already

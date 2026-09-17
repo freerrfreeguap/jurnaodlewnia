@@ -26,10 +26,34 @@ const escapeHtml = (s: string) =>
   s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
    .replace(/"/g, '&quot;').replace(/'/g, '&#39;');
 
+// Best-effort per-IP rate limit: survives while this isolate stays warm,
+// resets on cold start. Good enough to blunt casual abuse of a low-traffic
+// B2B contact form without adding a database dependency.
+const RATE_LIMIT_MAX = 5;
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
+const requestLog = new Map<string, number[]>();
+
+const isRateLimited = (ip: string): boolean => {
+  const now = Date.now();
+  if (requestLog.size > 5000) requestLog.clear(); // safety cap on memory
+  const recent = (requestLog.get(ip) ?? []).filter((t) => now - t < RATE_LIMIT_WINDOW_MS);
+  recent.push(now);
+  requestLog.set(ip, recent);
+  return recent.length > RATE_LIMIT_MAX;
+};
+
 Deno.serve(async (req) => {
   if (req.method === 'OPTIONS') return new Response('ok', { headers: corsHeaders });
 
   try {
+    const ip = req.headers.get('x-forwarded-for')?.split(',')[0]?.trim() || 'unknown';
+    if (isRateLimited(ip)) {
+      return new Response(
+        JSON.stringify({ error: 'Too many requests. Please try again later.' }),
+        { status: 429, headers: { ...corsHeaders, 'Content-Type': 'application/json', 'Retry-After': '600' } }
+      );
+    }
+
     const RESEND_API_KEY = Deno.env.get('RESEND_API_KEY');
     const HCAPTCHA_SECRET = Deno.env.get('HCAPTCHA_SECRET');
     if (!RESEND_API_KEY || !HCAPTCHA_SECRET) {
