@@ -1,0 +1,17 @@
+# Odlewnia Leniar
+
+> B2B producer of high-pressure Zamak 5 zinc die castings with in-house CNC machining and electroplating (chrome, nickel, satin). Based in Poland (office Kraków, production plant Głogów Małopolski, Subcarpathia). ISO 9001:2015. Quotes in 2–3 business days. Strictly B2B — no retail.
+
+## Pages
+
+- [Strona główna](/): Company overview, capabilities, realizations, and quick RFQ.
+- [Technologia](/technologia): Zamak 5 die casting parameters, tolerances (±0.05 mm), machinery park, finishing processes.
+- [Usługi](/uslugi): Full service scope — DFM, H13 steel molds, casting, CNC, threading, drilling, milling, electroplating, QC.
+- [Branże](/branze): Industries served — automotive, electrical, furniture, sanitary, lighting, industrial components.
+- [Kontakt](/kontakt): RFQ form (2D/3D required, max 5 files / 20 MB), contact: Roman Juryk, +48 690 841 365, roman.juryk@leniar.pl.
+
+## Notes
+
+- Languages: Polish (default), English, German.
+- NDA available for all technical documentation.
+- Website: https://odlewnialeniar.pl
