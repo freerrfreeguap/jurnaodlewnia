@@ -339,6 +339,8 @@ export const pl = {
     gdprIntro: "Administratorem Twoich danych jest",
     gdprBody: "Dane przetwarzamy w celu odpowiedzi na zapytanie (art. 6 ust. 1 lit. b i f RODO). Przysługuje Ci prawo dostępu, sprostowania, usunięcia, ograniczenia, sprzeciwu, przenoszenia danych oraz wniesienia skargi do Prezesa UODO. Pełne informacje:",
     gdprPolicyLinkLabel: "Polityka prywatności",
+    requiredNotePre: "Pola oznaczone",
+    requiredNotePost: "są wymagane.",
   },
   footer: {
     desc: "Precyzyjne komponenty ze stopów cynku Zamak. Odlewanie ciśnieniowe, obróbka końcowa i pokrycia galwaniczne – kompletna realizacja dla przemysłu.",

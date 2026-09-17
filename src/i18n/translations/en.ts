@@ -339,6 +339,8 @@ export const en = {
     gdprIntro: "The data controller is",
     gdprBody: "We process your data in order to respond to your enquiry (Art. 6(1)(b) and (f) GDPR). You have the right to access, rectify, erase, restrict, and object to processing, to data portability, and to lodge a complaint with the President of the Personal Data Protection Office (UODO). Full information:",
     gdprPolicyLinkLabel: "Privacy Policy",
+    requiredNotePre: "Fields marked",
+    requiredNotePost: "are required.",
   },
   footer: {
     desc: "Precision zinc alloy components. Die casting, post-processing, and electroplating – complete manufacturing for industry.",

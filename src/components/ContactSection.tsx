@@ -376,12 +376,12 @@ const ContactSection = ({ asH1 = false }: { asH1?: boolean }) => {
                     </p>
                   </div>
 
-                  <Button type="submit" size="lg" onClick={() => trackQuoteClick("contact_form_button")} className="w-full min-h-[44px] bg-primary text-primary-foreground hover:bg-primary/90" disabled={status === "loading"} aria-busy={status === "loading"}>
+                  <Button type="submit" variant="cta" size="lg" onClick={() => trackQuoteClick("contact_form_button")} className="w-full min-h-[44px]" disabled={status === "loading"} aria-busy={status === "loading"}>
                     {status === "loading" && <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" />}
                     {status === "loading" ? t("contact.formSubmitting") : t("contact.formSubmit")}
                   </Button>
                   <p className="text-xs text-muted-foreground text-center">
-                    Pola oznaczone <span className="text-destructive">*</span> są wymagane.
+                    {t("contact.requiredNotePre")} <span className="text-destructive">*</span> {t("contact.requiredNotePost")}
                   </p>
                 </form>
               )}

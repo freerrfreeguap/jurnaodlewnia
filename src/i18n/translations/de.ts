@@ -339,6 +339,8 @@ export const de = {
     gdprIntro: "Verantwortlicher für Ihre Daten ist",
     gdprBody: "Wir verarbeiten Ihre Daten, um auf Ihre Anfrage zu antworten (Art. 6 Abs. 1 lit. b und f DSGVO). Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Widerspruch und Datenübertragbarkeit sowie das Recht, eine Beschwerde beim Präsidenten der polnischen Datenschutzbehörde (UODO) einzureichen. Vollständige Informationen:",
     gdprPolicyLinkLabel: "Datenschutzerklärung",
+    requiredNotePre: "Pflichtfelder sind mit",
+    requiredNotePost: "gekennzeichnet.",
   },
   footer: {
     desc: "Präzise Komponenten aus Zinklegierungen. Druckguss, Nachbearbeitung und Galvanik – komplette Fertigung für die Industrie.",

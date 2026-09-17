@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&family=Dancing+Script:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -24,7 +24,7 @@
     --muted: 215 35% 95%;
     --muted-foreground: 222 30% 35%;
 
-    --accent: 215 85% 35%;
+    --accent: 27 88% 48%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 72% 51%;
@@ -116,10 +116,10 @@
     color: hsl(210 30% 80%);
   }
   .bg-card .text-accent {
-    color: hsl(215 90% 70%);
+    color: hsl(32 92% 62%);
   }
   .bg-card .border-accent {
-    border-color: hsl(215 90% 70%);
+    border-color: hsl(32 92% 62%);
   }
 
   .section-divider {
